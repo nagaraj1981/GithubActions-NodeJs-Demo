@@ -20,7 +20,7 @@ jobs:
             node-version: 18
             cache: 'npm'
         - name: Install node dependencies
-          run: npm_ci
+          run: npm ci
         - name: Execute test cases
           run: npm test
         - name: Build the nodejs command
