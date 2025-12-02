@@ -4,9 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - master
+     - master
   pull_request:
-    - master
+    branches:
+     - master
 jobs:
     Job1:
       runs-on: ubuntu-latest
