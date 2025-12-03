@@ -8,13 +8,12 @@ on:
   pull_request:
     branches:
      - master
-
 jobs:
     Job1:
-      continue_on_error: true  #continue to run the job even if there is an error
+      continue-on-error: true  #continue to run the job even if there is an error
       strategy:
-        matrix:
-          operating_system: [ubuntu-latest,windows-latest]
+       matrix:
+         operating_system: [ubuntu-latest,windows-latest]
       runs-on: ${{ matrix.operating_system }}
       steps:
         - name: clone the repo
