@@ -1,5 +1,5 @@
 ---
-name: workflow to run nodejs build
+name: Matrix workflow to run nodejs build
 on: 
   workflow_dispatch:
   push:
@@ -8,9 +8,14 @@ on:
   pull_request:
     branches:
      - master
+
 jobs:
     Job1:
-      runs-on: ubuntu-latest
+      continue_on_error: true  #continue to run the job even if there is an error
+      strategy:
+        matrix:
+          operating_system: [ubuntu-latest,windows-latest]
+      runs-on: ${{ matrix.operating_system }}
       steps:
         - name: clone the repo
           uses: actions/checkout@v6
