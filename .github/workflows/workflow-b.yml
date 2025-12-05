@@ -1,0 +1,15 @@
+name: Workflow B
+on:
+  workflow_run:
+    workflows: ["Workflow A"]  # Triggered after Workflow A
+    types:
+      - completed  # Trigger when Workflow A completes
+
+jobs:
+  run:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Do something
+        run: echo "Workflow B triggered after Workflow A"
