@@ -1,6 +1,7 @@
 name: Workflow B
 on:
   workflow_dispatch:
+  push:
     workflows: ["Workflow A"]  # Triggered after Workflow A
       types:
          - completed  # Trigger when Workflow A completes
