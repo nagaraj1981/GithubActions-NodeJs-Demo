@@ -8,6 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Do something
+        uses: peter-evans/repository-dispatch@v2
         run: echo "Workflow A completed"
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            event-type: trigger-workflow-b
+        
+
+  
+
+  
